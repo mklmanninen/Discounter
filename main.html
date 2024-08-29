@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid border">
+
+        <!--
+        Ensimmäinen rivi
+        NAV BAR 
+        -->
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light bg-success" id="navbar">
+              <a class="col-md-2 navbar-brand fw-bolder align-text-left fs-3" href="#">
+        DISCOUNTER
+              </a>
+  
+              <form class="col-md-4 d-flex">
+                <input class="form-control me-2" type="text" placeholder="Username" aria-label="tunnus">
+                <input class="form-control me-2" type="password" placeholder="Password" aria-label="salasana">
+                <button class="btn btn-outline-light" type="submit">Login</button>
+              </form>
+  
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+  
+  
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Navigation
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Työkalu 1</a></li>
+                      <li><a class="dropdown-item" href="#">Työkalu 2</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Muu</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>   
+          </nav>
+        </div>
+
+        <!--Price input-->
+        <div class="row mt-5 mb-5">
+            <div class="col-md-3">
+                <label>Price</label>
+                <input type="text" id="price"><br><br>
+                <button type="button" class="btn btn-success m-2" id="btn-add">Add to list</button>      
+            </div>
+
+            <!--Table-->
+            <div class="col-md-3">
+                <table class="p-5 m-2 bg-light border">
+                    <thead>
+                        <tr>
+                            <th class="col-3 border">Product</th>
+                            <th class="col-3 border" id="ogPrice">Original Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTable">
+                        <!--Response-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+              <table class="p-5 m-2 bg-light border">
+                <thead>
+                  <tr>
+                    <th class="col-3 border" id="convPrice">Converted Price</th>
+                  </tr>
+                </thead>
+                <tbody id="conversionTable">
+                  <!--Converted sums-->
+                </tbody>
+              </table>
+            </div>
+        </div>
+
+        <!--Discount-->
+        <div class="row mt-5 mb-5">
+          <div class="col-md-3">
+            <label>Discount %</label>
+            <input type="number" id="discount">
+            <button type="button" class="btn btn-success m-2" id="btn-total">Calculate</button>
+          </div>
+          <div class="col-md-3">
+            <p>Without discount:</p>
+            <p id="sum" class="ms-5"></p>
+            <p>With discount:</p>
+            <p id="resultDiscount" class="ms-5"></p>
+            <p id="convertedSums" class="ms-5"></p>
+          </div>
+        </div>
+
+        <!--Currency conversion-->
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <p class="fs-4">Convert currency</p>
+              <label for="currency1">From: </label>
+              <select name="currency1" id="currency1">
+              </select>
+              <label for="currency2">To: </label>
+              <select name="currency2" id="currency2">
+              </select>
+              <button type="button" class="btn btn-success m-2" id="btn-convert">Convert</button>
+
+            </div>
+            
+          </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
